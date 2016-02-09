@@ -23206,13 +23206,19 @@ var ReactRouter = require('react-router');
 var Router = ReactRouter.Router;
 var Route = ReactRouter.Route;
 
+var CreateHistory = require('history/lib/createHashHistory');
+
+var History = new CreateHistory({
+    queryKey: false
+});
+
 var Base = require('./components/base.jsx');
 var Page1 = require('./components/Page1.jsx');
 var Page2 = require('./components/Page2.jsx');
 
 var Routes = React.createElement(
     Router,
-    null,
+    { history: History },
     React.createElement(
         Route,
         { path: '/', component: Base },
@@ -23223,7 +23229,7 @@ var Routes = React.createElement(
 
 module.exports = Routes;
 
-},{"./components/Page1.jsx":209,"./components/Page2.jsx":210,"./components/base.jsx":211,"react":206,"react-router":44}],209:[function(require,module,exports){
+},{"./components/Page1.jsx":209,"./components/Page2.jsx":210,"./components/base.jsx":211,"history/lib/createHashHistory":7,"react":206,"react-router":44}],209:[function(require,module,exports){
 var React = require('react');
 
 var Page1 = React.createClass({
